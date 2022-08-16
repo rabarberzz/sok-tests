@@ -1,0 +1,25 @@
+
+.page-header {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+#login-container {
+  width: 20%;
+  margin-top: 2rem;
+  button {
+    width: 100%;
+  }
+}
+
+.main {
+  .tree{
+    background-color: #cecece;
+    border-radius: 5px;
+  }
+  .node {
+    background-color: #e7e7e7;
+    border-radius: 5px;
+  }
+}
