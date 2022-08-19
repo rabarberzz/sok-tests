@@ -16,3 +16,31 @@ function loadNode(element) {
         }
     });
 }
+
+function sendToNewItem(isChild) {
+    const nodeUid = $("#active").data("uid");
+    if (isChild) {
+        const url = 'new-item.php?uid=' + nodeUid + '&isChild=' + isChild;
+        window.location.href = url;
+    }else {
+        const url = 'new-item.php?uid=' + nodeUid;
+        window.location.href = url;
+    }
+}
+
+function removeNode() {
+    const nodeUid = $("#active").data("uid");
+    $.ajax({
+        url: '../scripts/removeItem.script.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {uid: nodeUid},
+        success: function (result){
+            if (result.status == 'true'){
+                location.reload();
+            }else if(result.status == 'child'){
+                alert("Error! Try removing child elements first.");
+            }
+        }
+    });
+}

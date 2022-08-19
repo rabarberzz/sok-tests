@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="25da928c-7d0a-4371-9c9f-7a9f583bf7d4" name="Changes" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/classes/IndexController.class.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/SectionModel.class.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new-item.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/displayNode.script.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/newItem.script.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/removeItem.script.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/IndexController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/IndexController.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/footer.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/footer.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new-item.php" beforeDir="false" afterPath="$PROJECT_DIR$/new-item.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tree.json" beforeDir="false" afterPath="$PROJECT_DIR$/tree.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +71,8 @@
       <workItem from="1660731575822" duration="8650000" />
       <workItem from="1660756558441" duration="4136000" />
       <workItem from="1660854526691" duration="4021000" />
-      <workItem from="1660904512510" duration="7979000" />
+      <workItem from="1660904512510" duration="8247000" />
+      <workItem from="1660936430826" duration="10556000" />
     </task>
     <servers />
   </component>

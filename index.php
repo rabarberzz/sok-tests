@@ -25,7 +25,12 @@
                 <h4 id="name">Node not found</h4>
                 <p id="description">No description</p>
             </div>
-            <button class="w-50" onclick="location.href='new-item.php'">Add item</button>
+            <div class="button-container container w-50 d-flex align-items-center justify-content-center my-4 p-4 flex-column">
+                <button class="w-50" onclick="sendToNewItem();">Add item</button>
+                <button class="w-50" onclick="sendToNewItem(true)">Add child item</button>
+                <button class="w-50" onclick="">Edit item</button>
+                <button class="w-50" id="remove-btn" onclick="removeNode()">Remove item</button>
+            </div>
         </div>
     </div>
 </body>

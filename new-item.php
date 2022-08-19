@@ -1,7 +1,11 @@
 <?php
     include './includes/autoload.inc.php';
     include './includes/header.inc.php';
-    $controller = new IndexController();
+    //$controller = new IndexController();
+    $isChild = 'false';
+    if (isset($_GET['isChild'])){
+        $isChild = 'true';
+    }
 ?>
 
 <!doctype html>
@@ -16,26 +20,20 @@
 <body>
 
     <div class="container main mt-4 w-25">
-        <form action="">
+        <form action="./scripts/newItem.script.php" method="post">
             <!-- Name input -->
             <div class="form-outline mb-4">
                 <label class="form-label" for="name-input">Name</label>
-                <input type="text" id="name-input" class="form-control" required />
+                <input name="name-input" type="text" id="name-input" class="form-control" required />
             </div>
             <!-- Description input -->
             <div class="form-outline mb-4">
                 <label class="form-label" for="description-input">Description</label>
-                <input type="text" id="description-input" class="form-control" required />
+                <input name="description-input" type="text" id="description-input" class="form-control" required />
             </div>
-            <!-- Parent input -->
-            <div class="form-outline mb-4">
-                <label for="parent-input" class="form-label">Parent element</label>
-                <select name="parent-input" id="parent-input" class="form-select">
-                    <option value="none" selected>No parent</option>
-                    <option value="">Test</option>
-                    <option value="">Test2</option>
-                </select>
-            </div>
+            <!--Hidden uid inputs-->
+            <input type="hidden" name="uid-input" value=<?php echo $_GET['uid'] ?>>
+            <input type="hidden" name="parent-uid-input" value=<?php echo $isChild ?>>
             <!--Submit button-->
             <button type="submit" class="btn btn-primary btn-block mb-4">Add item</button>
         </form>

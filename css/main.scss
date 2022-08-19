@@ -25,6 +25,24 @@
     background-color: #e7e7e7;
     border-radius: 5px;
   }
+  .button-container {
+    background-color: #e7e7e7;
+    border-radius: 5px;
+    button {
+      margin: 0.5rem;
+      border: 1px solid gray;
+      border-radius: 10px;
+      &:hover {
+        background-color: #cecece;
+      }
+      &#remove-btn {
+        background-color: #ff8282;
+        &:hover {
+          background-color: #fd4242;
+        }
+      }
+    }
+  }
 }
 
 #active {
