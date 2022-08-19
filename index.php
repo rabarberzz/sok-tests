@@ -1,7 +1,7 @@
 <?php
     include './includes/autoload.inc.php';
     include './includes/header.inc.php';
-    //header('Location: ' . 'login-page.php');
+    $controller = new IndexController();
 ?>
 
 <!doctype html>
@@ -17,24 +17,15 @@
     <div class="container main mt-4 " >
         <div class="row justify-content-center ">
             <div class="tree col-3 mx-2 text-start py-2">
-                <ul id="tree-root">
-                    <li>Root node 1
-                        <ul id="node1-subtree">
-                            <li>Node 1 sub node 1
-                                <ul id="node1-subnode1-subtree">
-                                    <li>Node 1 sub node 1 sub node</li>
-                                </ul>
-                            </li>
-                            <li>Node 1 sub node 2</li>
-                        </ul>
-                    </li>
-                    <li>Root node 2</li>
-                </ul>
+                <?php
+                    $controller->getTree();
+                ?>
             </div>
-            <div class="node col-8 text-center mx-2 py-2">
-                <h4>Node 1 title</h4>
-                <p>Node 1 description </p>
+            <div class="node col-8 text-center mx-2 py-2 align-items-center justify-content-center d-flex flex-column">
+                <h4 id="name">Node not found</h4>
+                <p id="description">No description</p>
             </div>
+            <button class="w-50" onclick="location.href='new-item.php'">Add item</button>
         </div>
     </div>
 </body>

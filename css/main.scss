@@ -17,9 +17,16 @@
   .tree{
     background-color: #cecece;
     border-radius: 5px;
+    li {
+      cursor: pointer;
+    }
   }
   .node {
     background-color: #e7e7e7;
     border-radius: 5px;
   }
+}
+
+#active {
+  background-color: #664d03;
 }
