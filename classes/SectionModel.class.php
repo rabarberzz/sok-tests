@@ -24,6 +24,18 @@ class SectionModel
         );
     }
 
+    public function setNameAndDescription($name, $description){
+        $this->name = $name;
+        $this->description = $description;
+    }
+
+    public function getNameDescArr() : array {
+        return array(
+            'name' => $this->name,
+            'description' => $this->description
+        );
+    }
+
     public function getParentUid() {
         return $this->parent_uid;
     }

@@ -10,7 +10,7 @@
 </head>
 <body>
     <header class="page-header container">
-        <h3>SOK Test</h3>
+        <h3> <a class="text-decoration-none text-reset" href="../index.php">SOK Test</a></h3>
     </header>
 </body>
 </html>

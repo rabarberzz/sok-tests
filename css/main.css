@@ -1,5 +1,5 @@
 .page-header {
-  margin: auto;
+  margin: 0.5rem auto auto;
   width: 100%;
   text-align: center;
   border-bottom: 1px solid black;
@@ -17,8 +17,12 @@
   background-color: #cecece;
   border-radius: 5px;
 }
+.main .tree ul {
+  padding-left: 1rem;
+}
 .main .tree li {
   cursor: pointer;
+  list-style: none;
 }
 .main .node {
   background-color: #e7e7e7;
@@ -43,8 +47,28 @@
   background-color: #fd4242;
 }
 
-#active {
-  background-color: #664d03;
+.tree-node {
+  text-decoration: none;
+  color: black;
+}
+.tree-node#active {
+  border-radius: 100%;
+  padding: 3px;
+  text-shadow: 2px 2px 4px black;
+}
+
+.old-container, .new-container {
+  background-color: #e7e7e7;
+  border-radius: 5px;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+#button-row {
+  padding: 0 2px;
 }
 
 /*# sourceMappingURL=main.css.map */

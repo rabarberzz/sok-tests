@@ -14,5 +14,5 @@ $result = $controller->addItem($inputName, $inputDescription, $inputUid, $inputP
 if ($result == true){
     header("location: ../index.php");
 }elseif ($result == false){
-    echo "Error in post data";
+    echo "<h3 class='text-center text-bg-danger'>Error in post data</h3>";
 }

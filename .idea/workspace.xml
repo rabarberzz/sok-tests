@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="25da928c-7d0a-4371-9c9f-7a9f583bf7d4" name="Changes" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/scripts/newItem.script.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scripts/removeItem.script.php" afterDir="false" />
+    <list default="true" id="25da928c-7d0a-4371-9c9f-7a9f583bf7d4" name="Changes" comment="Need to implement edit.">
+      <change afterPath="$PROJECT_DIR$/edit-item.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/editItem.script.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/IndexController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/IndexController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/SectionModel.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/SectionModel.class.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/header.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.inc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new-item.php" beforeDir="false" afterPath="$PROJECT_DIR$/new-item.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/newItem.script.php" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/newItem.script.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tree.json" beforeDir="false" afterPath="$PROJECT_DIR$/tree.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,23 +44,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "list.type.of.created.stylesheet": "SCSS",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.appearance",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;PHP&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "PHP"
     ]
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -72,8 +74,17 @@
       <workItem from="1660756558441" duration="4136000" />
       <workItem from="1660854526691" duration="4021000" />
       <workItem from="1660904512510" duration="8247000" />
-      <workItem from="1660936430826" duration="10556000" />
+      <workItem from="1660936430826" duration="10619000" />
+      <workItem from="1661004622527" duration="10562000" />
     </task>
+    <task id="LOCAL-00001" summary="Need to implement edit.">
+      <created>1660949560761</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1660949560761</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -92,6 +103,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="Need to implement edit." />
+    <option name="LAST_COMMIT_MESSAGE" value="Need to implement edit." />
   </component>
 </project>

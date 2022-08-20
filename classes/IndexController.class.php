@@ -39,7 +39,7 @@ class IndexController
             foreach ($tree as $node) {
                 //echo '<li>' . $node->getSectionArr()['name'];
                 $uid = $node->getUid();
-                echo "<li >" . "<a class='tree-node' onclick='loadNode(this);' data-uid='$uid' >" . $node->getSectionArr()['name'] .'</a>';
+                echo "<li>" . "<a class='tree-node' onclick='loadNode(this);' data-uid='$uid' >" . $node->getSectionArr()['name'] .'</a>';
                 $this->prepareTreeHtml($node->children);
                 echo '</li>';
             }
@@ -148,6 +148,26 @@ class IndexController
         }
         $this->saveTreeToFile();
         return 'true';
+    }
+    public function getNodeDataForEdit($uid) {
+        $targetObj = $this->findInArray($this->loadTest, $uid);
+        if (is_null($targetObj)){
+            return null;
+        }
+        return $targetObj->getNameDescArr();
+    }
+    public function editNode($uid, array $arr) {
+        $bSuccess = false;
+        $name = $arr['name'];
+        $description = $arr['description'];
+        foreach ($this->loadTest as $key => $value){
+            if ($value->getUid() == $uid){
+                $this->loadTest[$key]->setNameAndDescription($name, $description);
+                $this->saveTreeToFile();
+                $bSuccess = true;
+            }
+        }
+        return $bSuccess;
     }
 
 

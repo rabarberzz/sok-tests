@@ -44,3 +44,13 @@ function removeNode() {
         }
     });
 }
+
+function editNode() {
+    const nodeUid = $("#active").data("uid");
+    if (nodeUid != null){
+        const url = 'edit-item.php?uid=' + nodeUid;
+        window.location.href = url;
+    }else {
+        alert("Please select a node!");
+    }
+}
