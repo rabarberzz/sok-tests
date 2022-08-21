@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
-    <header class="page-header container">
-        <h3> <a class="text-decoration-none text-reset" href="../index.php">SOK Test</a></h3>
+    <header class="page-header container d-flex flex-row m-auto justify-content-between">
+        <h3 class="mx-auto my-1"> <a class="text-decoration-none text-reset" href="../index.php">SOK Test</a></h3>
+        <a href="../scripts/logOut.script.php" class="text-decoration-none text-secondary py-2">Log out</a>
     </header>
 </body>
 </html>

@@ -2,10 +2,10 @@
 
 class SectionModel
 {
-    public $uid;
-    protected $name;
-    protected $description;
-    public $parent_uid;
+    private $uid;
+    private $name;
+    private $description;
+    private $parent_uid;
     public $children;
 
     public function __construct($uid, $name, $description, $parent_uid) {
@@ -42,4 +42,5 @@ class SectionModel
     public function getUid() {
         return $this->uid;
     }
+
 }

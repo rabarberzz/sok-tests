@@ -1,4 +1,4 @@
-
+//dynamically loads node information on page and sets active attribute in node tree.
 function loadNode(element) {
     var elementUid = element.dataset.uid;
     $.ajax({
@@ -17,6 +17,7 @@ function loadNode(element) {
     });
 }
 
+//prepares url with attribute and sends user to new item page.
 function sendToNewItem(isChild) {
     const nodeUid = $("#active").data("uid");
     if (isChild) {
@@ -28,6 +29,7 @@ function sendToNewItem(isChild) {
     }
 }
 
+//using post method runs remove script which returns true or child message.
 function removeNode() {
     const nodeUid = $("#active").data("uid");
     $.ajax({
@@ -44,7 +46,7 @@ function removeNode() {
         }
     });
 }
-
+// checks if node is selected and sends user to edit item page.
 function editNode() {
     const nodeUid = $("#active").data("uid");
     if (nodeUid != null){

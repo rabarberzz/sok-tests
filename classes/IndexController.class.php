@@ -2,19 +2,12 @@
 
 class IndexController
 {
-//    private $testTree;
-//    private $testNodesArr;
-//    private SectionModel $testObj;
-    private $loadTest;
+    // main item array.
+    private $mainItemArray;
 
     //constructor
     public function __construct() {
-//        $testObj = new TestClass();
-//        $this->testNodesArr = $testObj->initNodes();
         $this->loadTreeFromFile();
-        //var_dump($this->testTree);
-        //$this->resetTree();
-        //$this->saveTreeToFile();
     }
 
     //private controller functions
@@ -48,12 +41,7 @@ class IndexController
     }
     //prepare html for displaying node data
     public function prepareNodeHtml($nodeUid) {
-        //$nodeObj = $this->findInTree($nodeUid, $this->loadTest);
-        //var_dump($this->testTree);
-        //$this->loadTreeFromFile();
-        $nodeObj = $this->findInArray($this->loadTest, $nodeUid);
-
-        //var_dump($nodeObj);
+        $nodeObj = $this->findInArray($this->mainItemArray, $nodeUid);
 
         if ($nodeObj) {
             $nodeName = $nodeObj->getSectionArr()['name'];
@@ -68,22 +56,10 @@ class IndexController
     }
     // resets tree array
     private function resetTree() {
-//        $this->testTree = $this->buildTree($this->loadTest);
-        return $this->buildTree($this->loadTest);
-        //var_dump($this->testTree);
+        return $this->buildTree($this->mainItemArray);
     }
-    private function findInTree($nodeUid, $nodeArr) {
-        if (!is_null($nodeArr) && count($nodeArr) > 0){
-            foreach ($nodeArr as $node){
-                if ($node->getUid() == $nodeUid) {
-                    return $node;
-                }else {
-                    $this->findInTree($nodeUid, $node->children);
-                }
-            }
-        }
-        return null;
-    }
+
+    // finds item in array and returns it
     private function findInArray($array, $uid){
         $node = null;
         foreach ($array as $item) {
@@ -93,76 +69,81 @@ class IndexController
         }
         return $node;
     }
+    //saves the main array to file
     private function saveTreeToFile() {
         $filePath = $_SERVER['DOCUMENT_ROOT'] . '/tree.json';
         $detailedArr = array();
-        foreach ($this->loadTest as $item) {
+        foreach ($this->mainItemArray as $item) {
             $detailedArr[] = $item->getSectionArr();
         }
         file_put_contents($filePath, json_encode($detailedArr));
     }
+    //loads array from file to the main array
     private function loadTreeFromFile() {
         $filePath = $_SERVER['DOCUMENT_ROOT'] . '/tree.json';
         $readResult = json_decode(file_get_contents($filePath), true);
         foreach ($readResult as $item) {
             $SectionObj = new SectionModel($item['uid'], $item['name'], $item['description'], $item['parent_uid']);
-            $this->loadTest[] = $SectionObj;
+            $this->mainItemArray[] = $SectionObj;
         }
     }
 
     //public functions
+    //function makes a temporary tree array which is used for preparing html drawing it on page.
     public function getTree() {
-        //$this->resetTree();
-        return $this->prepareTreeHtml($this->resetTree());
+        $this->prepareTreeHtml($this->resetTree());
     }
+    // function which creates and adds new item to main item array and then saves it to file.
     public function addItem($name, $description, $uid, $isChild) {
         if ($isChild == 'false' || $uid == 'undefined') {
             $parentUid = null;
             if ($uid != 'undefined'){
-                $referenceNode = $this->findInArray($this->loadTest, $uid);
+                $referenceNode = $this->findInArray($this->mainItemArray, $uid);
                 $parentUid = $referenceNode->getParentUid();
             }
             $newItemObj = new SectionModel(uniqid(), $name, $description, $parentUid);
-            $this->loadTest[] = $newItemObj;
+            $this->mainItemArray[] = $newItemObj;
         }elseif ($isChild == 'true'){
             $parentUid = $uid;
             $newItemObj = new SectionModel(uniqid(), $name, $description, $parentUid);
-            $this->loadTest[] = $newItemObj;
+            $this->mainItemArray[] = $newItemObj;
         }else{
             return false;
-            die();
         }
         $this->saveTreeToFile();
         return true;
     }
+    // function removes item by uid from main array, saves it to file and returns a message
     public function removeItem($uid) {
-        foreach ($this->loadTest as $key => $value){
+        foreach ($this->mainItemArray as  $value){
             if ($value->getParentUid() == $uid){
                 return 'child';
             }
         }
-        foreach ($this->loadTest as $key => $value){
+        foreach ($this->mainItemArray as $key => $value){
             if ($value->getUid() == $uid){
-                unset($this->loadTest[$key]);
+                unset($this->mainItemArray[$key]);
             }
         }
         $this->saveTreeToFile();
         return 'true';
     }
+    // searches node by uid and returns its data for view to use.
     public function getNodeDataForEdit($uid) {
-        $targetObj = $this->findInArray($this->loadTest, $uid);
+        $targetObj = $this->findInArray($this->mainItemArray, $uid);
         if (is_null($targetObj)){
             return null;
         }
         return $targetObj->getNameDescArr();
     }
+    // edits the node with data provided from form in edit page, returns message.
     public function editNode($uid, array $arr) {
         $bSuccess = false;
         $name = $arr['name'];
         $description = $arr['description'];
-        foreach ($this->loadTest as $key => $value){
+        foreach ($this->mainItemArray as $key => $value){
             if ($value->getUid() == $uid){
-                $this->loadTest[$key]->setNameAndDescription($name, $description);
+                $this->mainItemArray[$key]->setNameAndDescription($name, $description);
                 $this->saveTreeToFile();
                 $bSuccess = true;
             }
@@ -170,17 +151,5 @@ class IndexController
         return $bSuccess;
     }
 
-
-
 } //index controller end
 
-class TestClass {
-    public function initNodes() {
-        $rootnode1 = new SectionModel(uniqid(), 'root1', 'node desc', null);
-        $rootnode2 = new SectionModel(uniqid(),'root2', 'node desc', null);
-        $subnode1 = new SectionModel(uniqid(),'sub1', 'sub desc', $rootnode1->getUid());
-        $subnode2 = new SectionModel(uniqid(),'sub2', 'sub2 desc', $rootnode2->getUid());
-        $subsubnode1 = new SectionModel(uniqid(),'subsub1', 'subsub1 desc', $subnode2->getUid());
-        return $nodesArr = array($rootnode1, $rootnode2, $subnode1, $subnode2, $subsubnode1);
-    }
-}

@@ -1,12 +1,15 @@
 <?php
+    include './includes/loginCheck.inc.php';
     include './includes/autoload.inc.php';
     include './includes/header.inc.php';
     $controller = new IndexController();
     $nodeUid = null;
+    //checks query parameter uid
     if (isset($_GET['uid'])){
         $nodeUid = $_GET['uid'];
     }
     $itemArr = $controller->getNodeDataForEdit($nodeUid);
+    //item arr will be null if there is an error
     if (is_null($itemArr)){
         echo "<h3 class='text-center text-bg-danger'>Error! Invalid uid!</h3>";
         die();

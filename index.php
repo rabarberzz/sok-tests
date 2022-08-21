@@ -1,8 +1,8 @@
 <?php
+    include './includes/loginCheck.inc.php';
     include './includes/autoload.inc.php';
     include './includes/header.inc.php';
     $controller = new IndexController();
-
 ?>
 
 <!doctype html>
